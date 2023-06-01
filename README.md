@@ -46,7 +46,25 @@ Important: this application uses various AWS services and there are costs associ
     * Allow SAM to create roles with the required permissions if needed.
 
     Once you have run guided mode once, you can use `sam deploy` in future to use these defaults.
+## Architecture
 
+![plot](./Architecture.png)
+
+## Testing
+
+1. Create Cognito user using the hosted UI Url ( which is listed in the Output )
+2. Invoke a POST request with newly created user credentials and API Key. This will return JWT token, refresh token and user in a JSON object
+3. Open Websocket with Authorization as Query param
+   ```bash
+   wscat -c   wss://<API-ID>.execute-api.<REGION>.amazonaws.com/dev?Authorizer=<JWT TOKEN>
+   ```
+4. Get the connection id
+   ```bash
+   {"action": "getConnectionId" }
+   ```
+5. Invoke the Step-function
+   ```bash
+   { "bucketName": "<Bucket name starting with translator-dev-translatorbucket>", "objectKey": <Qualified Key of Voice message>, "inputLanguageCode": "<Transcribe Language Code>", "outputLanguageCode" : "<Language|PollyCode>" }
    
 ## Cleanup
  
