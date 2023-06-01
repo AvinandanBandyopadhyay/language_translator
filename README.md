@@ -5,10 +5,10 @@ platform: AWS
 language: nodeJS
 priority: 1
 -->
-title: 'Language translator using secure synchronous workflow'
-description: 'Using AWS serverless services, built a secure instantaneous language translator'
+# Language translator using secure synchronous workflow
+### Using AWS serverless services, build a secure instantaneous language translator
 
-# Amazon API Gateway REST and WebSockets
+
 
 The SAM template deploys - an Amazon API Gateway REST API endpoint for getting Authentication token
                            Amazon WebSockets for authenticating users and invoking Synchronous Step-function
