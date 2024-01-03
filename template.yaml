@@ -317,7 +317,6 @@ Resources:
   CapstoneConnectIntegration:
     Type: AWS::ApiGatewayV2::Integration
     Properties:
-    Properties:
       ApiId: !Ref CapstoneWebSocketApi
       IntegrationType: AWS_PROXY
       CredentialsArn: !GetAtt ConnectRouteApiRole.Arn
